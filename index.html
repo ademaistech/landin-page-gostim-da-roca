@@ -42,6 +42,8 @@
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         html { scroll-behavior: smooth; }
+        /* Compensa o cabeçalho fixo ao pular para âncoras (#cardapio, #faq, etc.) */
+        section[id] { scroll-margin-top: 80px; }
 
         body {
             font-family: var(--font-body);
@@ -2160,6 +2162,17 @@
 
         // Render inicial
         renderCart();
+
+        // Rolagem confiável para âncora (#cardapio, etc.) com conteúdo dinâmico e imagens lazy:
+        // espera tudo carregar antes de posicionar, senão o navegador pula para o lugar errado.
+        function irParaAncora() {
+            if (!location.hash) return;
+            const alvo = document.querySelector(location.hash);
+            if (alvo) alvo.scrollIntoView({ behavior: 'auto', block: 'start' });
+        }
+        if (location.hash) {
+            window.addEventListener('load', () => setTimeout(irParaAncora, 120));
+        }
     </script>
 </body>
 </html>
