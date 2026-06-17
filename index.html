@@ -670,7 +670,9 @@
 
         @media (max-width: 768px) {
             .cardapio-wrapper { grid-template-columns: 1fr; }
-            .cardapio-cta-box { position: static; }
+            /* No mobile, o box "Monte seu pedido" aparece antes da lista de produtos */
+            .cardapio-cta-box { position: static; order: -1; }
+            .cardapio-lista { order: 0; }
         }
 
         /* ========== CARRINHO ========== */
@@ -1198,12 +1200,12 @@
                 <div class="problema-grid">
                     <div class="fade-up">
                         <p class="section-label">Você já sentiu isso?</p>
-                        <h2>Cozinhar perdeu a graça<br>com tempero de prateleira</h2>
+                        <h2>Cozinhar perdeu a graça<br>com tempero de prateleira!?</h2>
                         <ul class="problema-list" style="margin-top: var(--space-md);">
-                            <li>Aquele alho e sal do mercado que não tem cheiro de nada</li>
-                            <li>Antepastos industrializados com gosto de conservante</li>
-                            <li>Você se esforça no prato, mas o tempero não acompanha</li>
-                            <li>Seus convidados elogiam, mas você sabe que falta "aquele algo"</li>
+                            <li>Aquele alho e sal do mercado que não tem cheiro de nada;</li>
+                            <li>Antepastos industrializados com gosto de conservante;</li>
+                            <li>Você se esforça no prato, mas o tempero não acompanha;</li>
+                            <li>Seus convidados elogiam, mas você sabe que falta "aquele algo."</li>
                         </ul>
                     </div>
                     <div class="fade-up" style="transition-delay: 0.15s;">
@@ -1228,7 +1230,7 @@
                     <p class="section-label" style="color: var(--pergaminho);">A resposta está na roça</p>
                     <h2>Pequenos detalhes <span>mudam tudo</span></h2>
                     <p>
-                        Gostim da Roça são temperos, antepastos e patês feitos à mão pela Kátia —
+                        Gostim da Roça são temperos, antepastos e patês feitos de forma artesanal, —
                         com ingredientes frescos, sem nenhum conservante, e com o carinho de quem
                         aprendeu a cozinhar no fogão a lenha.
                     </p>
