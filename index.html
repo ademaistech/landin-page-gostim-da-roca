@@ -581,6 +581,51 @@
             text-align: center;
             margin-bottom: var(--space-xl);
         }
+        .selo-sem-conservantes {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: var(--space-md);
+            padding: 8px 18px;
+            background: rgba(74, 107, 42, 0.12);
+            border: 1.5px solid var(--verde);
+            border-radius: 30px;
+            color: var(--verde);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .selo-sem-conservantes svg { width: 18px; height: 18px; fill: var(--verde); }
+        .google-review {
+            margin: var(--space-xl) auto 0;
+            max-width: 540px;
+            text-align: center;
+            background: var(--branco);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            box-shadow: 0 2px 12px var(--sombra);
+        }
+        .google-review .google-stars {
+            color: #FBBC04;
+            font-size: 1.6rem;
+            letter-spacing: 3px;
+            margin-bottom: var(--space-xs);
+        }
+        .google-review h3 { color: var(--terra); margin-bottom: var(--space-xs); }
+        .google-review p { color: var(--terra-light); margin-bottom: var(--space-md); }
+        .btn-google {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--terra);
+            color: var(--branco);
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius);
+            font-weight: 700;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .btn-google:hover { background: var(--terra-light); }
+        .btn-google:active { transform: scale(0.97); }
+        .btn-google svg { width: 20px; height: 20px; background: #fff; border-radius: 50%; padding: 2px; }
         .cardapio-wrapper {
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
@@ -621,23 +666,41 @@
         }
         .cardapio-item-acoes {
             display: flex;
-            align-items: center;
-            gap: var(--space-sm);
+            flex-direction: column;
+            align-items: stretch;
+            gap: 6px;
             flex-shrink: 0;
+            min-width: 168px;
+        }
+        .preco-opcao {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: var(--space-xs);
+        }
+        .preco-opcao .tam-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--terra-light);
+            background: var(--pergaminho);
+            padding: 2px 8px;
+            border-radius: 20px;
         }
         .cardapio-item-preco {
             font-weight: 700;
             color: var(--marsala);
-            font-size: 1.05rem;
+            font-size: 1.02rem;
             white-space: nowrap;
+            min-width: 74px;
+            text-align: right;
         }
         .btn-add {
             background: var(--laranja);
             color: var(--branco);
-            width: 36px;
-            height: 36px;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             line-height: 1;
             display: flex;
             align-items: center;
@@ -819,6 +882,31 @@
             padding-bottom: calc(var(--space-md) + env(safe-area-inset-bottom, 0px));
             border-top: 2px solid var(--pergaminho);
             background: var(--branco);
+        }
+        .cart-data-campo {
+            margin-bottom: var(--space-md);
+        }
+        .cart-data-campo label {
+            display: block;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--terra);
+            margin-bottom: 6px;
+        }
+        .cart-data-campo input {
+            width: 100%;
+            padding: 10px var(--space-sm);
+            border: 2px solid rgba(45,24,16,0.15);
+            border-radius: var(--radius);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--terra);
+            background: var(--branco);
+            transition: border-color 0.2s;
+        }
+        .cart-data-campo input:focus {
+            outline: none;
+            border-color: var(--laranja);
         }
         .cart-total-row {
             display: flex;
@@ -1290,7 +1378,7 @@
                         </div>
                         <div class="produto-card-body">
                             <h3>Patês & Cremes</h3>
-                            <p>Patê de frango defumado com pétalas de cebola, cream cheese com tomate seco e mousse de abacaxi com frango defumado.</p>
+                            <p>Patê de frango defumado (com ou sem cebola), patê de tomate seco com cream cheese e mousse de abacaxi com frango defumado.</p>
                             <span class="produto-tag">Receita exclusiva</span>
                         </div>
                     </article>
@@ -1300,7 +1388,7 @@
                         </div>
                         <div class="produto-card-body">
                             <h3>Temperos Caseiros</h3>
-                            <p>Mais de 15 variações de alho e sal — com alho poró, especiarias, pimenta calabresa, cheiro verde e muito mais.</p>
+                            <p>Mais de 12 variações de alho e sal — com alho-poró, especiarias, pimenta calabresa, cheiro verde, açafrão e muito mais.</p>
                             <span class="produto-tag">Sem conservantes</span>
                         </div>
                     </article>
@@ -1402,6 +1490,10 @@
                 <div class="cardapio-header fade-up">
                     <p class="section-label">Cardápio completo</p>
                     <h2>Escolha seus favoritos</h2>
+                    <span class="selo-sem-conservantes">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        Todos os produtos sem conservantes
+                    </span>
                 </div>
                 <div class="cardapio-wrapper">
                     <div class="cardapio-lista" id="cardapio-lista">
@@ -1419,6 +1511,21 @@
                         </button>
                         <p style="margin-top: var(--space-sm); font-size: 0.85rem; opacity: 0.7;">Pedido enviado direto pro WhatsApp da Kátia</p>
                     </div>
+                </div>
+
+                <div class="google-review fade-up">
+                    <div class="google-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <h3>Já provou e gostou?</h3>
+                    <p>Sua avaliação ajuda mais gente a conhecer o Gostim da Roça. Leva só um minutinho!</p>
+                    <a href="https://g.page/r/CW1Ms4dEHJ9cEAE/review" class="btn-google" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                        </svg>
+                        Avaliar no Google
+                    </a>
                 </div>
             </div>
         </section>
@@ -1622,6 +1729,10 @@
             <!-- itens renderizados via JS -->
         </div>
         <div class="cart-footer">
+            <div class="cart-data-campo">
+                <label for="cart-data">📅 Para quando você precisa?</label>
+                <input type="date" id="cart-data" name="cart-data">
+            </div>
             <div class="cart-total-row">
                 <span>Total</span>
                 <span id="cart-total">R$ 0,00</span>
@@ -1653,37 +1764,52 @@
         /* ============================================================
            👇  LISTA DE PRODUTOS — EDITE AQUI
            ------------------------------------------------------------
-           Para MUDAR UM PREÇO: altere o número em "preco".
-           Para ADICIONAR um produto: copie uma linha { ... } e cole
-             logo abaixo, mudando nome, preco, desc e categoria.
-           Para REMOVER: apague a linha { ... } inteira.
-           A "categoria" precisa ser um dos "id" definidos em CATEGORIAS.
+           Cada produto tem um ou mais TAMANHOS, cada um com seu preço:
+             precos: [ { tam: '250g', preco: 12.00 }, { tam: '500g', preco: 17.00 } ]
+
+           • MUDAR PREÇO: altere o número em "preco" do tamanho.
+           • ADICIONAR TAMANHO: acrescente um { tam: '...', preco: ... } na lista "precos".
+           • ADICIONAR PRODUTO: copie um bloco { ... } inteiro e cole abaixo.
+           • REMOVER: apague o bloco { ... } (produto) ou a linha do tamanho.
+           Use PONTO nos preços (12.00) e mantenha as aspas nos textos.
+           "categoria" precisa ser um dos "id" definidos em CATEGORIAS.
            O catálogo e o carrinho se atualizam sozinhos.
            ============================================================ */
         const CATEGORIAS = [
-            { id: 'temperos',   titulo: 'Temperos — Alho e Sal', emoji: '🌶️' },
-            { id: 'antepastos', titulo: 'Antepastos & Molhos',    emoji: '🍲' },
-            { id: 'pates',      titulo: 'Patês & Cremes',         emoji: '🧀' }
+            { id: 'temperos',   titulo: 'Temperos',           emoji: '🌶️' },
+            { id: 'antepastos', titulo: 'Patês & Antepastos', emoji: '🧀' },
+            { id: 'paes',       titulo: 'Pão Sírio',          emoji: '🥖' }
         ];
 
         const PRODUTOS = [
-            // --- Temperos — Alho e Sal ---
-            { nome: 'Alho e Sal Tradicional',          preco: 15.00, desc: 'O clássico, feito com alho fresco',          categoria: 'temperos' },
-            { nome: 'Alho e Sal com Alho Poró',        preco: 16.00, desc: 'Sabor mais suave e sofisticado',            categoria: 'temperos' },
-            { nome: 'Alho e Sal com Pimenta Calabresa', preco: 16.00, desc: 'Pra quem gosta de um ardidinho',           categoria: 'temperos' },
-            { nome: 'Alho e Sal com Cheiro Verde',     preco: 16.00, desc: 'Frescor de salsinha e cebolinha',           categoria: 'temperos' },
-            { nome: 'Alho e Sal com Especiarias',      preco: 18.00, desc: 'Blend especial da casa',                    categoria: 'temperos' },
+            // --- Temperos ---
+            { nome: 'Alho puro',                          categoria: 'temperos', precos: [ { tam: '250g', preco: 12.00 }, { tam: '500g', preco: 21.00 } ] },
+            { nome: 'Alho e sal',                         categoria: 'temperos', precos: [ { tam: '250g', preco: 12.00 }, { tam: '500g', preco: 17.00 }, { tam: '1Kg', preco: 30.00 } ] },
+            { nome: 'Alho e sal com pimenta calabresa',   categoria: 'temperos', precos: [ { tam: '250g', preco: 12.00 }, { tam: '500g', preco: 19.00 } ] },
+            { nome: 'Alho e sal com cheiro verde',        desc: 'Com ou sem pimenta calabresa', categoria: 'temperos', precos: [ { tam: '250g', preco: 12.00 }, { tam: '500g', preco: 19.00 } ] },
+            { nome: 'Alho e sal com cebola',              categoria: 'temperos', precos: [ { tam: '250g', preco: 12.00 }, { tam: '500g', preco: 19.00 } ] },
+            { nome: 'Alho e sal com pimenta biquinho',    categoria: 'temperos', precos: [ { tam: '250g', preco: 12.00 }, { tam: '500g', preco: 19.00 } ] },
+            { nome: 'Alho e sal com alho-poró',           categoria: 'temperos', precos: [ { tam: '250g', preco: 12.00 }, { tam: '500g', preco: 19.00 } ] },
+            { nome: 'Alho puro, alho-poró e cebola',      categoria: 'temperos', precos: [ { tam: '250g', preco: 14.00 }, { tam: '500g', preco: 22.00 } ] },
+            { nome: 'Alho e sal, alho-poró e cebola',     categoria: 'temperos', precos: [ { tam: '250g', preco: 14.00 }, { tam: '500g', preco: 22.00 } ] },
+            { nome: 'Alho e sal e açafrão',               categoria: 'temperos', precos: [ { tam: '250g', preco: 12.00 }, { tam: '500g', preco: 19.00 } ] },
+            { nome: 'Alho e sal completo',                desc: 'Com ou sem pimenta calabresa', categoria: 'temperos', precos: [ { tam: '250g', preco: 12.00 }, { tam: '500g', preco: 19.00 } ] },
+            { nome: 'Alho-poró e especiarias',            categoria: 'temperos', precos: [ { tam: '250g', preco: 14.00 }, { tam: '500g', preco: 22.00 } ] },
+            { nome: 'Mix de sabores',                     desc: 'Alho-poró, cebola roxa, pimenta biquinho, salsinha, açafrão, louro e noz-moscada', categoria: 'temperos', precos: [ { tam: '250g', preco: 14.00 }, { tam: '500g', preco: 22.00 } ] },
+            { nome: 'Alho e sal com especiarias',         desc: 'Embalagem de 1Kg — especiarias a escolher', categoria: 'temperos', precos: [ { tam: '1Kg', preco: 32.00 } ] },
 
-            // --- Antepastos & Molhos ---
-            { nome: 'Antepasto de Berinjela', preco: 25.00, desc: 'Opções com chia, linhaça, castanhas, nozes', categoria: 'antepastos' },
-            { nome: 'Tomate Seco',            preco: 22.00, desc: 'Desidratado artesanalmente com ervas',       categoria: 'antepastos' },
-            { nome: 'Molho Pesto',            preco: 20.00, desc: 'Manjericão fresco e parmesão',                categoria: 'antepastos' },
+            // --- Patês & Antepastos ---
+            { nome: 'Tomate seco',                        categoria: 'antepastos', precos: [ { tam: '250g', preco: 20.00 }, { tam: '450g', preco: 33.00 } ] },
+            { nome: 'Antepasto de berinjela',             categoria: 'antepastos', precos: [ { tam: '250g', preco: 18.00 }, { tam: '450g', preco: 28.00 } ] },
+            { nome: 'Molho pesto',                        categoria: 'antepastos', precos: [ { tam: '200g', preco: 20.00 }, { tam: '400g', preco: 36.00 } ] },
+            { nome: 'Patê de frango defumado com pétalas de cebola', desc: 'Feito com maionese e creme de leite, com passas e azeitona preta', categoria: 'antepastos', precos: [ { tam: '250g', preco: 29.00 }, { tam: '500g', preco: 49.00 } ] },
+            { nome: 'Patê de frango defumado sem cebola', desc: 'Feito com maionese e creme de leite, com passas e azeitona preta', categoria: 'antepastos', precos: [ { tam: '250g', preco: 32.00 }, { tam: '500g', preco: 52.00 } ] },
+            { nome: 'Patê de tomate seco',                desc: 'Feito com cream cheese e alcaparras', categoria: 'antepastos', precos: [ { tam: '250g', preco: 29.00 }, { tam: '500g', preco: 49.00 } ] },
+            { nome: 'Mousse de abacaxi',                  desc: 'Feito com frango defumado', categoria: 'antepastos', precos: [ { tam: '250g', preco: 29.00 }, { tam: '500g', preco: 49.00 } ] },
+            { nome: 'Tricolore',                          desc: 'Feito com pesto, cream cheese e tomate seco', categoria: 'antepastos', precos: [ { tam: '200g', preco: 24.00 }, { tam: '400g', preco: 37.00 } ] },
 
-            // --- Patês & Cremes ---
-            { nome: 'Patê de Frango Defumado',                preco: 24.00, desc: 'Com pétalas de cebola, uva passa e azeitona', categoria: 'pates' },
-            { nome: 'Cream Cheese com Tomate Seco',           preco: 24.00, desc: 'Cremoso e irresistível',                       categoria: 'pates' },
-            { nome: 'Mousse de Abacaxi com Frango Defumado',  preco: 24.00, desc: 'Doce e salgado em harmonia',                   categoria: 'pates' },
-            { nome: 'Tricolore',                              preco: 28.00, desc: 'Tomate seco + pesto + cream cheese em camadas', categoria: 'pates' }
+            // --- Pão Sírio ---
+            { nome: 'Pão Sírio',                          desc: 'Pacote com 15 pães', categoria: 'paes', precos: [ { tam: 'Pacote', preco: 12.00 } ] }
         ];
         /* ====================  FIM DA LISTA  ==================== */
 
@@ -1701,16 +1827,27 @@
                 html += `<div class="cardapio-categoria fade-up"${ci ? ` style="transition-delay: ${ci * 0.1}s;"` : ''}>`;
                 html += `<h3>${cat.emoji ? cat.emoji + ' ' : ''}${escHtml(cat.titulo)}</h3>`;
                 itens.forEach(p => {
+                    const precos = p.precos || [];
+                    const multi = precos.length > 1;
+                    const opcoes = precos.map(v => {
+                        // No carrinho, cada tamanho é um item próprio: "Nome (500g)"
+                        const nomeCarrinho = multi ? `${p.nome} (${v.tam})` : p.nome;
+                        const label = (multi || (v.tam && v.tam !== 'Pacote'))
+                            ? `<span class="tam-label">${escHtml(v.tam)}</span>` : '';
+                        return `
+                            <div class="preco-opcao">
+                                ${label}
+                                <span class="cardapio-item-preco">${formatBRLc(v.preco)}</span>
+                                <button class="btn-add" data-nome="${escAttr(nomeCarrinho)}" data-preco="${Number(v.preco).toFixed(2)}" aria-label="Adicionar ${escAttr(nomeCarrinho)} ao carrinho">+</button>
+                            </div>`;
+                    }).join('');
                     html += `
                         <div class="cardapio-item">
                             <div class="cardapio-item-info">
                                 <p class="cardapio-item-name">${escHtml(p.nome)}</p>
-                                <p class="cardapio-item-desc">${escHtml(p.desc || '')}</p>
+                                ${p.desc ? `<p class="cardapio-item-desc">${escHtml(p.desc)}</p>` : ''}
                             </div>
-                            <div class="cardapio-item-acoes">
-                                <span class="cardapio-item-preco">${formatBRLc(p.preco)}</span>
-                                <button class="btn-add" data-nome="${escAttr(p.nome)}" data-preco="${Number(p.preco).toFixed(2)}" aria-label="Adicionar ${escAttr(p.nome)} ao carrinho">+</button>
-                            </div>
+                            <div class="cardapio-item-acoes">${opcoes}</div>
                         </div>`;
                 });
                 html += `</div>`;
@@ -1996,16 +2133,30 @@
                 alert('Adicione produtos ao carrinho antes de finalizar o pedido.');
                 return;
             }
-            let texto = 'Olá Kátia! Quero fazer um pedido:\n\n';
+            let texto = 'Olá Kátia!\nSegue o meu pedido:\n\n';
             cart.forEach(i => {
                 texto += `• ${i.qtd}x ${i.nome} — ${formatBRL(i.preco * i.qtd)}\n`;
             });
-            texto += `\n*Total: ${formatBRL(cartTotal())}*\n\n`;
-            texto += 'Aguardo a confirmação e combinação da entrega. Obrigado(a)!';
+            texto += `\n*Total: ${formatBRL(cartTotal())}*\n`;
+
+            // Data desejada (se preenchida)
+            const dataInput = document.getElementById('cart-data');
+            if (dataInput && dataInput.value) {
+                const [ano, mes, dia] = dataInput.value.split('-');
+                texto += `\n📅 Preciso para: ${dia}/${mes}/${ano}\n`;
+            }
+
+            texto += '\nAguardo a confirmação para combinarmos a entrega.\nObrigado(a)!';
 
             const waUrl = `https://wa.me/${WHATS_NUMERO}?text=` + encodeURIComponent(texto);
             window.open(waUrl, '_blank');
         });
+
+        // Data mínima = hoje (não deixa escolher data passada)
+        (function(){
+            const di = document.getElementById('cart-data');
+            if (di) { const h = new Date(); di.min = `${h.getFullYear()}-${String(h.getMonth()+1).padStart(2,'0')}-${String(h.getDate()).padStart(2,'0')}`; }
+        })();
 
         // Render inicial
         renderCart();
