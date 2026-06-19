@@ -1983,9 +1983,11 @@
         const WHATS_NUMERO = '5531998546605';
         let cart = [];
 
-        // Carregar carrinho salvo
+        // Carregar carrinho salvo (sessionStorage: mantém durante a navegação,
+        // mas zera quando o cliente fecha a aba/página)
         try {
-            const saved = localStorage.getItem('gostim_cart');
+            localStorage.removeItem('gostim_cart'); // remove resíduo de versões anteriores
+            const saved = sessionStorage.getItem('gostim_cart');
             if (saved) cart = JSON.parse(saved);
         } catch (e) { cart = []; }
 
@@ -2001,7 +2003,7 @@
         const formatBRL = (n) => 'R$ ' + n.toFixed(2).replace('.', ',');
 
         function saveCart() {
-            try { localStorage.setItem('gostim_cart', JSON.stringify(cart)); } catch (e) {}
+            try { sessionStorage.setItem('gostim_cart', JSON.stringify(cart)); } catch (e) {}
         }
 
         function addToCart(nome, preco) {
